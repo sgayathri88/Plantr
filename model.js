@@ -5,8 +5,6 @@ const db = new Sequelize('postgres://localhost:5432/plantr');
 
 //modules.export = db;
 
-
-
 const Gardener= db.define('gardener', {
     name: Sequelize.STRING,
     age: Sequelize.INTEGER,
@@ -30,4 +28,4 @@ Plot.belongsToMany(Vegetable, {through: 'vegetable_plot'})
 Gardener.belongsTo(Vegetable, {as: 'favorite_vegetable'});
 
 
-module.exports = db;
+module.exports = {db, Plot, Gardener, Vegetable};
